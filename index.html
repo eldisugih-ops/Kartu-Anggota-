@@ -8,283 +8,58 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* CSS ANDA TETAP SAMA - TIDAK ADA PERUBAHAN */
-body{
-  margin:0;
-  background:linear-gradient(180deg,#061b12,#020b07);
-  font-family:'Poppins',sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
-  padding:16px;
-  color:#fff;
-}
-
-.card{
-  width:100%;
-  max-width:390px;
-  background:linear-gradient(160deg,#0f3d28,#062015);
-  border-radius:22px;
-  padding:18px;
-  box-shadow:0 0 35px rgba(0,255,160,.35);
-  border:1px solid rgba(0,255,160,.35);
-  animation:fadeIn 0.5s ease-out;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-.header{
-  text-align:center;
-  border-bottom:1px dashed rgba(255,255,255,.25);
-  padding-bottom:14px;
-}
-
-.logo-wrap{
-  width:86px;
-  height:86px;
-  margin:0 auto 10px;
-  border-radius:50%;
-  background:rgba(255,255,255,.12);
-  backdrop-filter:blur(12px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:
-    0 0 18px rgba(0,255,160,.6),
-    inset 0 0 12px rgba(255,255,255,.25);
-  transition:.4s ease;
-  animation:float 4s ease-in-out infinite;
-}
-.logo-wrap:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 28px rgba(0,255,160,.9);
-}
-.logo-wrap img{
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  object-fit:cover;
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-}
-
-.header h1{
-  font-size:16px;
-  margin:0;
-  font-weight:700;
-  color:#7dffb2;
-}
-.header small{
-  font-size:11px;
-  opacity:.85;
-}
-
-.status{
-  margin:12px auto;
-  text-align:center;
-}
-.status span{
-  padding:6px 18px;
-  border-radius:20px;
-  background:#00ff9d33;
-  color:#00ff9d;
-  font-size:12px;
-  font-weight:600;
-}
-.status-inactive{
-  background:#ff3d0033 !important;
-  color:#ffa000 !important;
-}
-
-.identity{
-  text-align:center;
-  margin:14px 0;
-}
-.identity h2{
-  margin:4px 0;
-  font-size:17px;
-}
-.identity p{
-  margin:0;
-  font-size:12px;
-  color:#a9ffd1;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin:16px 0;
-}
-.stat{
-  background:rgba(0,255,160,.15);
-  border-radius:14px;
-  padding:10px;
-  text-align:center;
-}
-.stat small{
-  font-size:10px;
-  opacity:.9;
-}
-.stat b{
-  display:block;
-  margin-top:6px;
-  font-size:13px;
-}
-
-.data{
-  font-size:12px;
-}
-.data div{
-  display:flex;
-  justify-content:space-between;
-  padding:7px 0;
-  border-bottom:1px dashed rgba(255,255,255,.25);
-}
-.data span{
-  color:#b6ffd1;
-}
-
-.actions{
-  display:flex;
-  gap:12px;
-  margin:18px 0 6px;
-}
-.actions button{
-  flex:1;
-  border:none;
-  padding:10px;
-  border-radius:14px;
-  background:rgba(0,255,160,.2);
-  color:#00ff9d;
-  font-weight:600;
-  backdrop-filter:blur(10px);
-  box-shadow:0 0 14px rgba(0,255,160,.5);
-  transition:.3s;
-  cursor:pointer;
-  font-family:'Poppins',sans-serif;
-}
-.actions button:hover{
-  background:#00ff9d;
-  color:#003a24;
-  transform:translateY(-2px);
-}
-
-.footer{
-  margin-top:10px;
-  text-align:center;
-  font-size:10px;
-  opacity:.75;
-}
-
-.loading{
-  text-align:center;
-  padding:30px;
-}
-.spinner{
-  width:40px;
-  height:40px;
-  border:3px solid rgba(0,255,160,.3);
-  border-top:3px solid #00ff9d;
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-  margin:0 auto 15px;
-}
-@keyframes spin{
-  0%{transform:rotate(0deg)}
-  100%{transform:rotate(360deg)}
-}
-
-.last-update{
-  font-size:9px;
-  text-align:center;
-  margin-top:5px;
-  opacity:.6;
-}
-
-.qr-section{
-  text-align:center;
-  margin-top:20px;
-  padding-top:15px;
-  border-top:1px dashed rgba(255,255,255,.2);
-}
-.qr-code{
-  display:inline-block;
-  background:white;
-  padding:10px;
-  border-radius:12px;
-  margin:10px 0;
-}
-.qr-code canvas{
-  display:block;
-}
-.qr-note{
-  font-size:10px;
-  opacity:.7;
-  margin-top:8px;
-}
-
-.error-state{
-  text-align:center;
-  padding:40px 20px;
-}
-.error-state h3{
-  color:#ffa000;
-  margin-bottom:10px;
-}
-
-/* DEBUG PANEL */
-.debug-panel {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background: rgba(0,0,0,0.8);
-  color: #00ff9d;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 12px;
-  max-width: 300px;
-  z-index: 1000;
-  display: none;
-}
-.debug-toggle {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  background: #00ff9d;
-  color: #003a24;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 1001;
-  font-weight: bold;
-}
+/* CSS SAMA */
+body{margin:0;background:linear-gradient(180deg,#061b12,#020b07);font-family:'Poppins',sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:16px;color:#fff;}
+.card{width:100%;max-width:390px;background:linear-gradient(160deg,#0f3d28,#062015);border-radius:22px;padding:18px;box-shadow:0 0 35px rgba(0,255,160,.35);border:1px solid rgba(0,255,160,.35);animation:fadeIn 0.5s ease-out;}
+@keyframes fadeIn{from{opacity:0; transform:translateY(20px);}to{opacity:1; transform:translateY(0);}}
+.header{text-align:center;border-bottom:1px dashed rgba(255,255,255,.25);padding-bottom:14px;}
+.logo-wrap{width:86px;height:86px;margin:0 auto 10px;border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(0,255,160,.6), inset 0 0 12px rgba(255,255,255,.25);transition:.4s ease;animation:float 4s ease-in-out infinite;}
+.logo-wrap:hover{transform:scale(1.08);box-shadow:0 0 28px rgba(0,255,160,.9);}
+.logo-wrap img{width:58px;height:58px;border-radius:50%;object-fit:cover;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.header h1{font-size:16px;margin:0;font-weight:700;color:#7dffb2;}
+.header small{font-size:11px;opacity:.85;}
+.status{margin:12px auto;text-align:center;}
+.status span{padding:6px 18px;border-radius:20px;background:#00ff9d33;color:#00ff9d;font-size:12px;font-weight:600;}
+.status-inactive{background:#ff3d0033 !important;color:#ffa000 !important;}
+.identity{text-align:center;margin:14px 0;}
+.identity h2{margin:4px 0;font-size:17px;}
+.identity p{margin:0;font-size:12px;color:#a9ffd1;}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0;}
+.stat{background:rgba(0,255,160,.15);border-radius:14px;padding:10px;text-align:center;}
+.stat small{font-size:10px;opacity:.9;}
+.stat b{display:block;margin-top:6px;font-size:13px;}
+.data{font-size:12px;}
+.data div{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.25);}
+.data span{color:#b6ffd1;}
+.actions{display:flex;gap:12px;margin:18px 0 6px;}
+.actions button{flex:1;border:none;padding:10px;border-radius:14px;background:rgba(0,255,160,.2);color:#00ff9d;font-weight:600;backdrop-filter:blur(10px);box-shadow:0 0 14px rgba(0,255,160,.5);transition:.3s;cursor:pointer;font-family:'Poppins',sans-serif;}
+.actions button:hover{background:#00ff9d;color:#003a24;transform:translateY(-2px);}
+.footer{margin-top:10px;text-align:center;font-size:10px;opacity:.75;}
+.loading{text-align:center;padding:30px;}
+.spinner{width:40px;height:40px;border:3px solid rgba(0,255,160,.3);border-top:3px solid #00ff9d;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 15px;}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.last-update{font-size:9px;text-align:center;margin-top:5px;opacity:.6;}
+.qr-section{text-align:center;margin-top:20px;padding-top:15px;border-top:1px dashed rgba(255,255,255,.2);}
+.qr-code{display:inline-block;background:white;padding:10px;border-radius:12px;margin:10px 0;}
+.qr-code canvas{display:block;}
+.qr-note{font-size:10px;opacity:.7;margin-top:8px;}
+.error-state{text-align:center;padding:40px 20px;}
+.error-state h3{color:#ffa000;margin-bottom:10px;}
+.debug-panel{position:fixed;top:10px;right:10px;background:rgba(0,0,0,0.8);color:#00ff9d;padding:10px;border-radius:5px;font-size:12px;max-width:300px;z-index:1000;display:none;}
+.debug-toggle{position:fixed;top:10px;left:10px;background:#00ff9d;color:#003a24;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;z-index:1001;font-weight:bold;}
+.url-info{position:fixed;bottom:10px;left:10px;background:rgba(0,255,160,0.1);padding:10px;border-radius:5px;font-size:11px;max-width:400px;}
 </style>
 
-<!-- QR Code Library -->
 <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
 </head>
 
 <body>
 
-<!-- Debug Toggle Button -->
 <button class="debug-toggle" onclick="toggleDebug()">🐛 Debug</button>
+<div class="debug-panel" id="debugPanel"><h4>Debug Information</h4><div id="debugInfo"></div></div>
+<div class="url-info" id="urlInfo"></div>
 
-<!-- Debug Panel -->
-<div class="debug-panel" id="debugPanel">
-  <h4>Debug Information</h4>
-  <div id="debugInfo"></div>
-</div>
-
-<!-- Main Card Container -->
 <div class="card" id="cardContainer">
   <div class="loading" id="loading">
     <div class="spinner"></div>
@@ -295,16 +70,16 @@ body{
 <script>
 // =================== CONFIGURATION ===================
 const CONFIG = {
-  // URL Web Apps Script Anda - PASTIKAN INI BENAR
+  // URL APPS SCRIPT BARU ANDA - PASTIKAN INI BENAR!
   APPS_SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbyH4EWqEwAMx_I3JN745wwC8Y3G0iT08iTAr0_cwWm5dyd6dkJBwheS-WHr-jmQBKs/exec',
   
-  // KOLOM MAPPING YANG BENAR - SESUAI HEADER SPREADSHEET
+  // KOLOM MAPPING
   COLUMN_MAPPING: {
     foto: 'Foto',
     id: 'ID/NIA',
     posisi: 'Posisi',
-    nama: 'Nama_Lengkap',           // DIPERBAIKI: dari 'namaLengkap' ke 'Nama_Lengkap'
-    alamat: 'Alamat_Lengkap',       // DIPERBAIKI: dari 'alamatLengkap' ke 'Alamat_Lengkap'
+    nama: 'Nama_Lengkap',
+    alamat: 'Alamat_Lengkap',
     jenisKelamin: 'Jenis_Kelamin',
     email: 'Email',
     whatsapp: 'WhatsApp',
@@ -318,138 +93,92 @@ const CONFIG = {
     totalSimpanan: 'Total_Simpanan',
     totalPinjaman: 'Total_Pinjaman',
     shuEstimasi: 'SHU_Estimasi',
-    lastUpdate: 'LastUpdated'       // DIPERBAIKI: dari 'lastupdated' ke 'LastUpdated'
-  },
-  
-  // DEMO DATA FALLBACK
-  DEMO_MEMBER: {
-    "Foto": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhADAiDm28b0fescUKnqADc9uk3Q2oIptWD-hyzBQXb2AMtoPrxb7Q9Ecr9SDV_RhqA9uWO6qTcepfbfuR7KFWuKUmYYPB-6JfiExBCzT-MljhNh1P1TPsabKvh2rAQzEtZUA0lpiIkIuBxHvHVuXl0GdUWEyaABcfpsHnX_kyDLN_pS2gVNzp_kIP6Vss/s1280/1000007204.jpg",
-    "ID/NIA": "NIA-001",
-    "Posisi": "Anggota",
-    "Nama_Lengkap": "Data Demo - ID Tidak Ditemukan",
-    "Alamat_Lengkap": "Alamat tidak tersedia",
-    "Jenis_Kelamin": "-",
-    "Email": "-",
-    "WhatsApp": "-",
-    "NIK": "-",
-    "Agama": "-",
-    "Status": "AKTIF",
-    "Tanggal_Bergabung": new Date().toISOString().split('T')[0],
-    "Simpanan_Pokok": 0,
-    "Simpanan_Wajib": 0,
-    "Simpanan_Sukarela": 0,
-    "Total_Simpanan": 0,
-    "Total_Pinjaman": 0,
-    "SHU_Estimasi": 0,
-    "LastUpdated": new Date().toISOString()
+    lastUpdate: 'LastUpdated'
   }
 };
 
-// =================== DEBUG FUNCTIONS ===================
+// =================== DEBUG SYSTEM ===================
 let debugLog = [];
-
-function logDebug(message, data = null) {
-  const timestamp = new Date().toLocaleTimeString();
-  const logEntry = `[${timestamp}] ${message}`;
-  debugLog.push(logEntry);
-  
-  if (data) {
-    console.log(message, data);
-    debugLog.push(`  Data: ${JSON.stringify(data).substring(0, 200)}...`);
-  } else {
-    console.log(message);
+function logDebug(msg, data) {
+  const time = new Date().toLocaleTimeString();
+  debugLog.push(`[${time}] ${msg}`);
+  console.log(msg, data || '');
+  if (data && typeof data === 'object') {
+    debugLog.push(`  Data: ${JSON.stringify(data).substring(0, 100)}`);
   }
-  
   updateDebugPanel();
 }
-
 function updateDebugPanel() {
-  const debugPanel = document.getElementById('debugPanel');
-  const debugInfo = document.getElementById('debugInfo');
-  
-  if (debugPanel && debugInfo) {
-    debugInfo.innerHTML = debugLog.slice(-10).join('<br>');
+  const panel = document.getElementById('debugPanel');
+  const info = document.getElementById('debugInfo');
+  if (panel && info) {
+    info.innerHTML = debugLog.slice(-10).join('<br>');
   }
 }
-
 function toggleDebug() {
-  const debugPanel = document.getElementById('debugPanel');
-  debugPanel.style.display = debugPanel.style.display === 'block' ? 'none' : 'block';
+  const panel = document.getElementById('debugPanel');
+  panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
 }
 
-// =================== HELPER FUNCTIONS ===================
-function formatRupiah(angka) {
-  if (angka === null || angka === undefined || angka === '') return 'Rp 0';
-  const num = Number(angka);
-  if (isNaN(num)) return 'Rp 0';
-  return 'Rp ' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-}
-
-function formatDate(dateString) {
-  if (!dateString) return '-';
+// =================== INITIAL CHECK ===================
+document.addEventListener('DOMContentLoaded', function() {
+  // Tampilkan URL info
+  const urlInfo = document.getElementById('urlInfo');
+  const currentUrl = window.location.href;
+  const hasIdParam = currentUrl.includes('?id=');
   
-  try {
-    // Coba parsing berbagai format tanggal
-    let date;
-    
-    if (dateString.includes('/')) {
-      // Format DD/MM/YYYY
-      const parts = dateString.split('/');
-      date = new Date(parts[2], parts[1] - 1, parts[0]);
-    } else if (dateString.includes('-')) {
-      // Format YYYY-MM-DD
-      date = new Date(dateString);
-    } else {
-      // Coba parsing langsung
-      date = new Date(dateString);
+  urlInfo.innerHTML = `
+    <strong>URL Saat Ini:</strong><br>
+    ${currentUrl}<br>
+    <strong>Status Parameter:</strong> ${hasIdParam ? '✅ Ada ?id=' : '❌ Tidak ada ?id='}<br>
+    <strong>Contoh URL Benar:</strong><br>
+    ${currentUrl.split('?')[0]}?id=NIA-001
+  `;
+  
+  // Jika tidak ada parameter ID, minta user
+  if (!hasIdParam) {
+    const memberId = prompt('Masukkan ID Anggota (contoh: NIA-001):', 'NIA-001');
+    if (memberId) {
+      // Redirect ke URL dengan parameter
+      const newUrl = `${window.location.pathname}?id=${encodeURIComponent(memberId)}`;
+      window.location.href = newUrl;
+      return;
     }
-    
-    if (isNaN(date.getTime())) {
-      return dateString; // Kembalikan as-is jika tidak valid
-    }
-    
-    const day = date.getDate().toString().padStart(2, '0');
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const year = date.getFullYear();
-    
-    return `${day}-${month}-${year}`;
-  } catch (e) {
-    logDebug(`Error formatting date: ${dateString}`, e);
-    return dateString;
   }
-}
+  
+  // Mulai load data
+  setTimeout(loadMemberData, 500);
+});
 
-function formatStatus(status) {
-  if (!status) return 'AKTIF';
-  const statusText = status.toString().toUpperCase();
-  return statusText.includes('AKTIF') ? 'AKTIF' : 'TIDAK AKTIF';
-}
-
-function getUrlParameter(name) {
-  const urlParams = new URLSearchParams(window.location.search);
-  const value = urlParams.get(name);
-  logDebug(`URL Parameter ${name}: ${value}`);
-  return value;
-}
-
-// =================== LOAD SPECIFIC MEMBER DATA ===================
+// =================== LOAD MEMBER DATA ===================
 async function loadMemberData() {
-  logDebug('=== MEMUAT DATA ANGGOTA ===');
+  logDebug('=== MULAI LOAD DATA ===');
+  
+  // Dapatkan ID dari URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const memberId = urlParams.get('id') || 'NIA-001';
+  logDebug(`ID dari URL: ${memberId}`);
+  
+  // Validasi ID
+  if (!memberId || memberId.trim() === '') {
+    showError('ID anggota tidak ditemukan di URL. Gunakan: ?id=NIA-001');
+    return;
+  }
   
   try {
-    // 1. Ambil ID dari URL parameter
-    const memberId = getUrlParameter('id') || 'NIA-001';
-    logDebug(`Mencari anggota dengan ID: ${memberId}`);
+    // 1. Test koneksi ke Apps Script
+    logDebug(`Testing Apps Script: ${CONFIG.APPS_SCRIPT_URL}`);
     
-    // 2. Buat URL dengan parameter ID
+    // Gunakan proxy jika perlu (untuk bypass CORS di development)
     const apiUrl = `${CONFIG.APPS_SCRIPT_URL}?id=${encodeURIComponent(memberId)}`;
     logDebug(`API URL: ${apiUrl}`);
     
-    // 3. Ambil data dari Google Sheets dengan timeout
+    // 2. Fetch data dengan timeout
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 detik timeout
-    
-    logDebug('Mengirim request ke Apps Script...');
+    const timeout = setTimeout(() => {
+      controller.abort();
+      throw new Error('Timeout: Apps Script tidak merespon dalam 15 detik');
+    }, 15000);
     
     const response = await fetch(apiUrl, {
       method: 'GET',
@@ -457,81 +186,73 @@ async function loadMemberData() {
       signal: controller.signal,
       headers: {
         'Accept': 'application/json',
-        'Cache-Control': 'no-cache'
+        'Content-Type': 'application/json'
       }
     });
     
-    clearTimeout(timeoutId);
+    clearTimeout(timeout);
     
-    logDebug(`Response status: ${response.status} ${response.statusText}`);
+    logDebug(`Response Status: ${response.status}`);
     
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
     
     const result = await response.json();
-    logDebug('Response dari Apps Script:', result);
+    logDebug('Apps Script Response:', result);
     
-    let memberData = null;
-    
-    // 4. Proses data response
-    if (result.status === 'success' && result.data && result.data.length > 0) {
-      logDebug(`Data ditemukan: ${result.data.length} anggota`);
-      
-      // Ambil anggota pertama (karena kita cari by ID, harusnya hanya 1)
-      memberData = result.data[0];
-      logDebug(`Anggota ditemukan: ${memberData['Nama_Lengkap'] || 'Nama tidak tersedia'}`);
-      
+    // 3. Process data
+    if (result.status === 'success') {
+      if (result.data && result.data.length > 0) {
+        // Data ditemukan
+        const memberData = result.data[0];
+        logDebug(`Data ditemukan: ${memberData['Nama_Lengkap'] || 'Nama tidak tersedia'}`);
+        displayMemberCard(memberData, memberId);
+      } else {
+        // Data tidak ditemukan
+        logDebug(`Data untuk ID ${memberId} tidak ditemukan di database`);
+        showDemoData(memberId, 'Data tidak ditemukan di database');
+      }
     } else {
-      // Data tidak ditemukan
-      logDebug(`Data tidak ditemukan untuk ID: ${memberId}`, result);
-      logDebug('Menggunakan data demo...');
-      
-      // Gunakan data demo dengan ID yang diminta
-      memberData = { ...CONFIG.DEMO_MEMBER };
-      memberData["ID/NIA"] = memberId;
-      memberData["Nama_Lengkap"] = `ID ${memberId} Tidak Ditemukan`;
+      // Error dari Apps Script
+      throw new Error(`Apps Script Error: ${result.message || 'Unknown error'}`);
     }
     
-    // 5. Tampilkan kartu
-    displayMemberCard(memberData, memberId);
-    
   } catch (error) {
-    logDebug('ERROR mengambil data:', error);
+    logDebug('ERROR:', error);
     
-    // Fallback ke data demo
-    const memberId = getUrlParameter('id') || 'NIA-001';
-    logDebug(`Menggunakan fallback data untuk ID: ${memberId}`);
+    // Fallback strategies
+    if (error.name === 'AbortError') {
+      showDemoData(memberId, 'Apps Script timeout. Cek deployment.');
+    } else if (error.message.includes('Failed to fetch')) {
+      showDemoData(memberId, 'Tidak bisa terhubung ke Apps Script. Cek URL dan CORS.');
+    } else {
+      showDemoData(memberId, error.message);
+    }
     
-    const fallbackData = { ...CONFIG.DEMO_MEMBER };
-    fallbackData["ID/NIA"] = memberId;
-    fallbackData["Nama_Lengkap"] = `Error: ${error.message.substring(0, 50)}...`;
-    
-    displayMemberCard(fallbackData, memberId);
-    
-    // Tampilkan error ke user
+    // Tampilkan error details
     setTimeout(() => {
-      alert(`Error: ${error.message}\n\nCek console untuk detail.`);
-    }, 500);
+      alert(`⚠️ Error: ${error.message}\n\nCek console untuk detail debugging.`);
+    }, 1000);
   }
 }
 
-// =================== DISPLAY SINGLE CARD ===================
+// =================== DISPLAY MEMBER CARD ===================
 function displayMemberCard(member, memberId) {
-  logDebug('Menampilkan kartu untuk:', member['Nama_Lengkap']);
+  logDebug(`Menampilkan kartu untuk: ${member['Nama_Lengkap'] || memberId}`);
   
-  // Proses data - gunakan mapping yang benar
-  const memberData = {
-    id: member[CONFIG.COLUMN_MAPPING.id] || memberId || '-',
+  // Process data
+  const data = {
+    id: member[CONFIG.COLUMN_MAPPING.id] || memberId,
     nama: member[CONFIG.COLUMN_MAPPING.nama] || 'Nama tidak tersedia',
-    email: member[CONFIG.COLUMN_MAPPING.email] || '-',
-    status: formatStatus(member[CONFIG.COLUMN_MAPPING.status]),
     posisi: member[CONFIG.COLUMN_MAPPING.posisi] || '-',
+    status: formatStatus(member[CONFIG.COLUMN_MAPPING.status]),
     alamat: member[CONFIG.COLUMN_MAPPING.alamat] || '-',
-    whatsapp: member[CONFIG.COLUMN_MAPPING.whatsapp] || '-',
     jenisKelamin: member[CONFIG.COLUMN_MAPPING.jenisKelamin] || '-',
     agama: member[CONFIG.COLUMN_MAPPING.agama] || '-',
     nik: member[CONFIG.COLUMN_MAPPING.nik] || '-',
+    email: member[CONFIG.COLUMN_MAPPING.email] || '-',
+    whatsapp: member[CONFIG.COLUMN_MAPPING.whatsapp] || '-',
     tanggalBergabung: formatDate(member[CONFIG.COLUMN_MAPPING.tanggalBergabung]),
     simpananPokok: Number(member[CONFIG.COLUMN_MAPPING.simpananPokok]) || 0,
     simpananWajib: Number(member[CONFIG.COLUMN_MAPPING.simpananWajib]) || 0,
@@ -539,194 +260,231 @@ function displayMemberCard(member, memberId) {
     totalSimpanan: Number(member[CONFIG.COLUMN_MAPPING.totalSimpanan]) || 0,
     totalPinjaman: Number(member[CONFIG.COLUMN_MAPPING.totalPinjaman]) || 0,
     shuEstimasi: Number(member[CONFIG.COLUMN_MAPPING.shuEstimasi]) || 0,
-    foto: member[CONFIG.COLUMN_MAPPING.foto] || CONFIG.DEMO_MEMBER.Foto
+    foto: member[CONFIG.COLUMN_MAPPING.foto] || getDefaultPhoto()
   };
   
-  // Hitung total simpanan jika kosong atau 0
-  if (memberData.totalSimpanan === 0) {
-    memberData.totalSimpanan = memberData.simpananPokok + memberData.simpananWajib + memberData.simpananSukarela;
-    logDebug(`Total simpanan dihitung: ${memberData.totalSimpanan}`);
+  // Calculate totals
+  if (data.totalSimpanan === 0) {
+    data.totalSimpanan = data.simpananPokok + data.simpananWajib + data.simpananSukarela;
   }
   
-  // Status class
-  const statusClass = memberData.status === 'AKTIF' ? '' : 'status-inactive';
+  // Build HTML
+  const statusClass = data.status === 'AKTIF' ? '' : 'status-inactive';
+  const photoUrl = data.foto && data.foto.trim() !== '' ? data.foto : getDefaultPhoto();
   
-  // Default foto jika kosong
-  const fotoUrl = memberData.foto && memberData.foto.trim() !== '' 
-    ? memberData.foto 
-    : CONFIG.DEMO_MEMBER.Foto;
-  
-  // Generate kartu HTML
-  const cardHTML = `
+  const html = `
     <div class="header">
       <div class="logo-wrap">
-        <img src="${fotoUrl}" alt="Foto ${memberData.nama}" 
-             onerror="this.onerror=null; this.src='${CONFIG.DEMO_MEMBER.Foto}'">
+        <img src="${photoUrl}" alt="Foto" onerror="this.src='${getDefaultPhoto()}'">
       </div>
       <h1>KOPERASI ASMARA TANI</h1>
       <small>Kartu Anggota Digital</small>
     </div>
-
-    <div class="status">
-      <span class="${statusClass}">${memberData.status}</span>
-    </div>
-
+    
+    <div class="status"><span class="${statusClass}">${data.status}</span></div>
+    
     <div class="identity">
-      <h2>${memberData.nama}</h2>
-      <p>ID: ${memberData.id} | ${memberData.posisi}</p>
+      <h2>${data.nama}</h2>
+      <p>ID: ${data.id} | ${data.posisi}</p>
     </div>
-
+    
     <div class="stats">
-      <div class="stat"><small>Simpanan Pokok</small><b>${formatRupiah(memberData.simpananPokok)}</b></div>
-      <div class="stat"><small>Simpanan Wajib</small><b>${formatRupiah(memberData.simpananWajib)}</b></div>
-      <div class="stat"><small>Simpanan Sukarela</small><b>${formatRupiah(memberData.simpananSukarela)}</b></div>
+      <div class="stat"><small>Simpanan Pokok</small><b>${formatRupiah(data.simpananPokok)}</b></div>
+      <div class="stat"><small>Simpanan Wajib</small><b>${formatRupiah(data.simpananWajib)}</b></div>
+      <div class="stat"><small>Simpanan Sukarela</small><b>${formatRupiah(data.simpananSukarela)}</b></div>
     </div>
-
+    
     <div class="data">
-      <div><span>Alamat</span><b>${memberData.alamat}</b></div>
-      <div><span>Jenis Kelamin</span><b>${memberData.jenisKelamin}</b></div>
-      <div><span>Agama</span><b>${memberData.agama}</b></div>
-      <div><span>NIK</span><b>${memberData.nik}</b></div>
-      <div><span>Email</span><b>${memberData.email}</b></div>
-      <div><span>WhatsApp</span><b>${memberData.whatsapp}</b></div>
-      <div><span>Tanggal Daftar</span><b>${memberData.tanggalBergabung}</b></div>
-      <div><span>Total Simpanan</span><b>${formatRupiah(memberData.totalSimpanan)}</b></div>
-      <div><span>Total Pinjaman</span><b>${formatRupiah(memberData.totalPinjaman)}</b></div>
-      <div><span>Estimasi SHU</span><b>${formatRupiah(memberData.shuEstimasi)}</b></div>
+      <div><span>Alamat</span><b>${data.alamat}</b></div>
+      <div><span>Jenis Kelamin</span><b>${data.jenisKelamin}</b></div>
+      <div><span>Agama</span><b>${data.agama}</b></div>
+      <div><span>NIK</span><b>${data.nik}</b></div>
+      <div><span>Email</span><b>${data.email}</b></div>
+      <div><span>WhatsApp</span><b>${data.whatsapp}</b></div>
+      <div><span>Tanggal Daftar</span><b>${data.tanggalBergabung}</b></div>
+      <div><span>Total Simpanan</span><b>${formatRupiah(data.totalSimpanan)}</b></div>
+      <div><span>Total Pinjaman</span><b>${formatRupiah(data.totalPinjaman)}</b></div>
+      <div><span>Estimasi SHU</span><b>${formatRupiah(data.shuEstimasi)}</b></div>
     </div>
-
+    
     <div class="actions">
-      <button onclick="window.print()">🖨️ Cetak Kartu</button>
+      <button onclick="window.print()">🖨️ Cetak</button>
       <button onclick="shareCard()">📤 Bagikan</button>
-      <button onclick="testConnection()">🔧 Test API</button>
+      <button onclick="testAPIConnection()">🔗 Test API</button>
     </div>
-
+    
     <div class="qr-section">
       <div class="qr-code" id="qrCode"></div>
-      <div class="qr-note">Scan QR Code untuk melihat kartu digital ini</div>
+      <div class="qr-note">Scan QR untuk kartu digital ini</div>
     </div>
-
+    
     <div class="footer">
-      Data tersinkronisasi dari Google Sheets<br>
-      © Koperasi Asmara Tani 2026
-      <div class="last-update">Terakhir update: ${formatDate(member[CONFIG.COLUMN_MAPPING.lastUpdate] || new Date().toISOString())}</div>
+      Data dari Google Sheets • © Koperasi Asmara Tani 2026
+      <div class="last-update">Update: ${formatDate(member[CONFIG.COLUMN_MAPPING.lastUpdate] || new Date())}</div>
     </div>
   `;
   
-  // Update container
-  document.getElementById('cardContainer').innerHTML = cardHTML;
-  logDebug('Kartu HTML berhasil dibuat');
-  
-  // Generate QR Code
-  setTimeout(() => generateQRCode(memberId), 100);
+  document.getElementById('cardContainer').innerHTML = html;
+  generateQRCode(memberId);
 }
 
-// =================== GENERATE QR CODE ===================
+// =================== DEMO DATA FALLBACK ===================
+function showDemoData(memberId, reason) {
+  logDebug(`Menampilkan data demo: ${reason}`);
+  
+  const demoData = {
+    id: memberId,
+    nama: `Demo - ${memberId}`,
+    posisi: 'Anggota',
+    status: 'AKTIF',
+    alamat: 'Data belum tersedia',
+    jenisKelamin: '-',
+    agama: '-',
+    nik: '-',
+    email: '-',
+    whatsapp: '-',
+    tanggalBergabung: formatDate(new Date()),
+    simpananPokok: 200000,
+    simpananWajib: 50000,
+    simpananSukarela: 100000,
+    totalSimpanan: 350000,
+    totalPinjaman: 0,
+    shuEstimasi: 50000,
+    foto: getDefaultPhoto()
+  };
+  
+  // Gunakan displayMemberCard dengan data demo
+  displayMemberCard(demoData, memberId);
+  
+  // Tampilkan warning
+  const cardContainer = document.getElementById('cardContainer');
+  const warning = document.createElement('div');
+  warning.style.cssText = `
+    background: rgba(255, 160, 0, 0.2);
+    border: 1px solid #ffa000;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #ffa000;
+  `;
+  warning.innerHTML = `
+    <strong>⚠️ Data Demo Ditampilkan</strong><br>
+    Reason: ${reason}<br>
+    Pastikan:<br>
+    1. URL Apps Script benar<br>
+    2. Deployment "Who has access" = "Anyone"<br>
+    3. Spreadsheet berisi data ID: ${memberId}
+  `;
+  
+  cardContainer.appendChild(warning);
+}
+
+// =================== HELPER FUNCTIONS ===================
+function formatRupiah(angka) {
+  const num = Number(angka);
+  return isNaN(num) ? 'Rp 0' : 'Rp ' + num.toLocaleString('id-ID');
+}
+
+function formatDate(dateString) {
+  if (!dateString) return '-';
+  try {
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return dateString;
+    return date.toLocaleDateString('id-ID', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+  } catch {
+    return dateString;
+  }
+}
+
+function formatStatus(status) {
+  if (!status) return 'AKTIF';
+  return status.toString().toUpperCase().includes('AKTIF') ? 'AKTIF' : 'TIDAK AKTIF';
+}
+
+function getDefaultPhoto() {
+  return 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhADAiDm28b0fescUKnqADc9uk3Q2oIptWD-hyzBQXb2AMtoPrxb7Q9Ecr9SDV_RhqA9uWO6qTcepfbfuR7KFWuKUmYYPB-6JfiExBCzT-MljhNh1P1TPsabKvh2rAQzEtZUA0lpiIkIuBxHvHVuXl0GdUWEyaABcfpsHnX_kyDLN_pS2gVNzp_kIP6Vss/s1280/1000007204.jpg';
+}
+
 function generateQRCode(memberId) {
   try {
-    // URL lengkap dengan parameter ID
-    const currentUrl = window.location.href;
-    const qrUrl = currentUrl.includes('?') 
-      ? currentUrl.split('?')[0] + `?id=${encodeURIComponent(memberId)}`
-      : currentUrl + `?id=${encodeURIComponent(memberId)}`;
+    const currentUrl = window.location.href.split('?')[0];
+    const qrUrl = `${currentUrl}?id=${encodeURIComponent(memberId)}`;
     
-    logDebug(`Generating QR Code untuk: ${qrUrl}`);
-    
-    // Generate QR Code
-    const qr = new QRious({
+    new QRious({
       element: document.getElementById('qrCode'),
       value: qrUrl,
       size: 150,
-      level: 'H',
-      foreground: '#061b12',
-      background: 'transparent'
+      level: 'H'
     });
     
-    logDebug('QR Code berhasil dibuat');
+    logDebug(`QR Code dibuat: ${qrUrl}`);
   } catch (error) {
-    logDebug('Error generating QR Code:', error);
-    const qrElement = document.getElementById('qrCode');
-    if (qrElement) {
-      qrElement.innerHTML = `<p style="color:#ffa000; padding:20px;">QR Error: ${error.message}</p>`;
-    }
+    document.getElementById('qrCode').innerHTML = 
+      `<div style="color:#ffa000; padding:20px;">QR Error</div>`;
   }
 }
 
-// =================== SHARE FUNCTION ===================
 function shareCard() {
-  const memberId = getUrlParameter('id') || 'NIA-001';
-  const shareUrl = window.location.href;
-  const shareText = `Kartu Digital Anggota Koperasi Asmara Tani - ID: ${memberId}`;
-  
-  logDebug(`Sharing card: ${shareText}`);
+  const memberId = new URLSearchParams(window.location.search).get('id') || 'NIA-001';
+  const url = window.location.href;
   
   if (navigator.share) {
     navigator.share({
-      title: 'Kartu Digital Anggota',
-      text: shareText,
-      url: shareUrl
-    }).then(() => {
-      logDebug('Share berhasil');
-    }).catch(err => {
-      logDebug('Share dibatalkan atau error:', err);
+      title: `Kartu Anggota ${memberId}`,
+      text: 'Kartu Digital Anggota Koperasi Asmara Tani',
+      url: url
     });
   } else {
-    // Fallback: copy to clipboard
-    navigator.clipboard.writeText(shareUrl).then(() => {
-      alert('✅ Link telah disalin ke clipboard!\n\n' + shareUrl);
-      logDebug('URL disalin ke clipboard');
-    }).catch(err => {
-      logDebug('Gagal copy ke clipboard:', err);
-      alert('Gagal menyalin link. Silakan copy manual:\n' + shareUrl);
+    navigator.clipboard.writeText(url).then(() => {
+      alert('✅ URL disalin ke clipboard!\n' + url);
     });
   }
 }
 
-// =================== TEST CONNECTION FUNCTION ===================
-async function testConnection() {
-  logDebug('=== TESTING API CONNECTION ===');
+function testAPIConnection() {
+  const testUrl = CONFIG.APPS_SCRIPT_URL;
+  logDebug(`Testing: ${testUrl}`);
   
-  try {
-    const testUrl = CONFIG.APPS_SCRIPT_URL;
-    logDebug(`Testing URL: ${testUrl}`);
-    
-    const response = await fetch(testUrl, {
-      method: 'GET',
-      mode: 'cors',
-      headers: { 'Accept': 'application/json' }
+  fetch(testUrl)
+    .then(r => r.json())
+    .then(data => {
+      alert(`✅ API Connected!\nStatus: ${data.status}\nMessage: ${data.message}\nTotal Data: ${data.total || 0}`);
+      logDebug('API Test Success:', data);
+    })
+    .catch(err => {
+      alert(`❌ API Failed!\nError: ${err.message}`);
+      logDebug('API Test Failed:', err);
     });
-    
-    const result = await response.json();
-    
-    alert(`✅ API Connection Test\nStatus: ${result.status}\nMessage: ${result.message}\nTotal Data: ${result.total || 0}\n\nCek console untuk detail.`);
-    logDebug('API Test Result:', result);
-    
-  } catch (error) {
-    alert(`❌ API Connection Failed\nError: ${error.message}\n\nCek console untuk detail.`);
-    logDebug('API Test Error:', error);
-  }
 }
 
-// =================== AUTO REFRESH ===================
-// setInterval(loadMemberData, 60000); // Refresh setiap 60 detik
+function showError(message) {
+  const html = `
+    <div class="error-state">
+      <h3>❌ Error</h3>
+      <p>${message}</p>
+      <p><strong>Contoh URL yang benar:</strong></p>
+      <p style="font-size:11px; background:#000; padding:10px; border-radius:5px;">
+        ${window.location.origin}${window.location.pathname}?id=NIA-001
+      </p>
+      <button onclick="location.href='?id=NIA-001'" style="margin-top:15px; padding:10px; background:#00ff9d; color:#003a24; border:none; border-radius:10px; cursor:pointer;">
+        Coba dengan ID: NIA-001
+      </button>
+    </div>
+  `;
+  document.getElementById('cardContainer').innerHTML = html;
+}
 
-// =================== INITIAL LOAD ===================
-document.addEventListener('DOMContentLoaded', function() {
-  logDebug('=== APLIKASI DIMULAI ===');
-  logDebug(`URL: ${window.location.href}`);
-  logDebug(`User Agent: ${navigator.userAgent.substring(0, 50)}...`);
-  
-  // Mulai loading data
-  setTimeout(loadMemberData, 500);
-});
-
-// Global function untuk testing dari console
-window.debugApp = {
-  reload: loadMemberData,
-  testApi: testConnection,
-  getConfig: () => CONFIG,
+// Global functions for testing
+window.debug = {
+  reload: () => location.reload(),
+  test: testAPIConnection,
   getLogs: () => debugLog,
-  clearLogs: () => { debugLog = []; updateDebugPanel(); }
+  getConfig: () => CONFIG
 };
 </script>
 </body>
